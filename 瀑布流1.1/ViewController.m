@@ -9,10 +9,12 @@
 #import "ViewController.h"
 #import "QXWaterflowerview.h"
 #import "QXwaterflowerviewCell.h"
-
-
+#import "UIImageView+WebCache.h"
+#import "MJRefresh.h"
 
 @interface ViewController () <QXWaterflowerviewDelegate,QXWaterflowerviewDataSource>
+
+@property (nonatomic,strong) QXWaterflowerview *waterview;
 
 @end
 
@@ -24,12 +26,32 @@
     waterviewflower.frame = self.view.bounds;
     waterviewflower.delegate = self;
     waterviewflower.dataSource = self;
+    self.waterview = waterviewflower;
     [self.view addSubview:waterviewflower];
     
+    waterviewflower.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+       
+        NSLog(@"header");
+    }];
     
+    
+   
+       waterviewflower.footer = [MJRefreshBackStateFooter footerWithRefreshingTarget:self refreshingAction:@selector(tets)];
+  
+    NSLog(@"fioot %@",waterviewflower.footer);
     [waterviewflower reloadData];
     
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)tets
+{
+    NSLog(@"tets");
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+       
+        [self.waterview.footer endRefreshing];
+    }) ;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,12 +66,12 @@
 - (NSUInteger) numberOfCellsInWaterflowerview:(QXWaterflowerview *)waterflowerview
 {
     
-    return 100;
+    return 20;
 }
 
 - (NSUInteger) numberOfColumnsInWaterflowerview:(QXWaterflowerview *)waterflowerview
 {
-    return 1;
+    return 3;
 }
 
 - (QXwaterflowerviewCell *) waterflowerview:(QXWaterflowerview *)waterflowerview cellAtIndex:(NSUInteger)index
@@ -60,12 +82,14 @@
     QXwaterflowerviewCell *cell = [waterflowerview dequeueReusableCellWithIdentifier:ID];
     if ( !cell) {
         cell = [[QXwaterflowerviewCell alloc] initWithIdentifier:ID];
-//        cell.identifier = ID;
-    }
-//    NSLog(@"%zd %p", index, cell);
+  }
+
+    cell.backgroundColor = [UIColor blueColor];
+    cell.imageView.backgroundColor = [UIColor redColor];
+    
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:@"http://p16.qhimg.com/dr/48_48_/t0125e8d438ae9d2fbb.png"] placeholderImage:[UIImage imageNamed:@"arrow"] options:1];
+    
     cell.backgroundColor = [UIColor redColor];
-    
-    
     return cell;
 }
 
@@ -81,6 +105,7 @@
         case 2: return 95;
         default: return 120;
     }
+    return 160;
 }
 
 - (CGFloat ) waterflowerview:(QXWaterflowerview *)waterflowerview maginForType:(QXWaterflowerviewMarginType)type
@@ -94,6 +119,8 @@
         default:
             return 10;
     }
+    
+    return 5;
 }
 
 
@@ -101,7 +128,7 @@
 {
     UIView *view = [[UIView alloc] init];
     view.backgroundColor = [UIColor greenColor];
-    view.bounds = CGRectMake(0, 0, 350, 100);
+    view.bounds = CGRectMake(0, 0, 365, 100);
     
     
     return view;

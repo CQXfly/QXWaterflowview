@@ -6,6 +6,7 @@
 //  Copyright (c) 2015年 崇庆旭. All rights reserved.
 //
 
+#import "MJRefresh.h"
 #import "QXWaterflowerview.h"
 #import "QXwaterflowerviewCell.h"
 
@@ -69,6 +70,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.showsVerticalScrollIndicator = NO;
     }
     return self;
 }
@@ -79,6 +81,7 @@
  */
 - (void) reloadData
 {
+    
     //数据源方法需要返还的数据
     
     UIView *headerview = [self headerViewInwaterview:self];
@@ -236,6 +239,7 @@
 {
     [super layoutSubviews];
     
+  
     
     NSUInteger numberofCells = self.cellFrames.count;
     
