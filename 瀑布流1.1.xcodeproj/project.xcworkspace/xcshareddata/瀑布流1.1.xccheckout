@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>363A99FB-23FC-47C0-A360-D04118AFE271</string>
+	<key>IDESourceControlProjectName</key>
+	<string>瀑布流1.1</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C23F00F9C3243C6ABC4EE5589BF544CEADA3A594</key>
+		<string>https://github.com/CQXfly/-1.1.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>瀑布流1.1.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C23F00F9C3243C6ABC4EE5589BF544CEADA3A594</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/CQXfly/-1.1.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C23F00F9C3243C6ABC4EE5589BF544CEADA3A594</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C23F00F9C3243C6ABC4EE5589BF544CEADA3A594</string>
+			<key>IDESourceControlWCCName</key>
+			<string>%E7%80%91%E5%B8%83%E6%B5%811.1</string>
+		</dict>
+	</array>
+</dict>
+</plist>
